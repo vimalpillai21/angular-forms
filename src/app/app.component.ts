@@ -11,7 +11,14 @@ export class AppComponent {
   defaultSelected = 'pet';
   answer = '';
   genders = ['male','female'];
-  
+  user = {
+    username: '',
+    email: '',
+    secret: '',
+    questionAnswer: '',
+    gender: ''
+  }
+  submitted = false;
   suggestUserName() {
     const suggestedName = 'Superuser';
     // this.signupForm.setValue({
@@ -36,6 +43,12 @@ export class AppComponent {
   //   console.log('Hello World');
   // }
   onSubmit(){
+    this.submitted = true;
+    this.user.username = this.signupForm.value.userData.username;
+    this.user.email = this.signupForm.value.userData.email;
+    this.user.questionAnswer =this.signupForm.value.questionAnswer;
+    this.user.secret = this.signupForm.value.secret;
+    this.user.gender = this.signupForm.value.gender;
     console.log(this.signupForm);
   }
 }
